@@ -58,6 +58,8 @@ def xml_to_kitti(input_dir, output_dir, encode_difficult, classes):
                 dif = '0'
             line = ''
             class_name = element_obj.find('name').text
+            if class_name not in classes:
+                print(f"|{class_name}|", classes)
             assert class_name in classes
             line += class_name
             line += ' '
